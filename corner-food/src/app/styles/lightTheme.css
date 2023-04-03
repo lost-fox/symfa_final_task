@@ -1,0 +1,16 @@
+:root[theme='light'] {
+
+    --palette-yellow: var(--yellow);
+    --palette-green: var(--green);
+    --palette-red: var(--red);
+
+
+    --palette-background-main: var(--palette-grey-6);
+    --palette-background-item: var(--white);
+
+    --palette-h1: var( --palette-blue-4);
+    --palette-h2: var( --palette-blue-3);
+    --palette-h3: var(--palette-grey-2);
+    --palette-h4: var(--palette-grey-2);
+    --palette-p: var(--palette-blue-4);
+}

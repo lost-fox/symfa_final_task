@@ -1,0 +1,17 @@
+:root[app-theme='dark'] {
+
+    --palette-yellow: var(--yellow);
+    --palette-green: var(--green);
+    --palette-red: var(--red);
+
+
+    --palette-background-main: var(--palette-blue-1);
+    --palette-background-item: var(--palette-blue-2);
+
+
+    --palette-h1: var(--palette-grey-6);
+    --palette-h2: var(--yellow);
+    --palette-h3: var(--palette-grey-3);
+    --palette-h4: var(--palette-grey-4);
+    --palette-p: var(--palette-grey-6);
+}

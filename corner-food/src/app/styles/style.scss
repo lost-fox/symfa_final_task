@@ -1,0 +1,9 @@
+@use './darkTheme';
+@use './lightTheme';
+@import './allColors.scss';
+@import './reset.scss';
+
+body {
+    background-color: var( --palette-background-main);
+    font-family: 'Poppins', sans-serif;
+}

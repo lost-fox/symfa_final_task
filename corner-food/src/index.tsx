@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 
-import { App } from './App';
+import { ThemeContextProvider } from './app/theme/ThemeContext';
+import { App } from './app';
 
-import './index.css';
+import './app/styles/style.scss';
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement,
@@ -11,6 +13,10 @@ const root = ReactDOM.createRoot(
 
 root.render(
     <React.StrictMode>
-        <App />
+        <ThemeContextProvider>
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
+        </ThemeContextProvider>
     </React.StrictMode>,
 );
