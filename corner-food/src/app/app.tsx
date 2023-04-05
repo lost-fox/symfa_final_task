@@ -1,12 +1,12 @@
 import { memo } from 'react';
 
-import { Login } from 'pages/Login';
+import { SignUp } from 'pages/SignUp';
 
 import './app.scss';
 
 export const App = memo(() => (
     <div className="wrapper">
-        <Login/>
+        <SignUp/>
     </div>
 ));
 
