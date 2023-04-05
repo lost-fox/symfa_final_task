@@ -75,6 +75,12 @@
       "last 1 safari version"
     ]
   },
+  "husky": {
+    "hooks": {
+      "prepare": "npx husky install",
+      "pre-commit": "lint-staged -q"
+    }
+  },
   "lint-staged": {
     "*.{ts, tsx}": [
       "prettier --check",

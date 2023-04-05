@@ -1,9 +1,10 @@
 @use './darkTheme';
 @use './lightTheme';
-@import './allColors.scss';
-@import './reset.scss';
+@import './allColors';
+@import './reset';
 
 body {
+    font-family: Poppins, sans-serif;
+    font-style: normal;
     background-color: var( --palette-background-main);
-    font-family: 'Poppins', sans-serif;
 }

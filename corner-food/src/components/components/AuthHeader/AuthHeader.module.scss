@@ -1,0 +1,31 @@
+.wrapper {
+    width: 100%;
+    height: 311px;
+    padding: 32px 43px 0;
+    background: var(--palette-background-item);
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    box-shadow: 0 4px 15px rgb(0 0 0 / 5%);
+
+    .title {
+        margin-top: 16px;
+        color: var( --palette-h1);
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 42px;
+    }
+
+    .subtitle {
+        color: var(--palette-h3);
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 28px;
+    }
+
+    .tabs {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 21px;
+    }
+}

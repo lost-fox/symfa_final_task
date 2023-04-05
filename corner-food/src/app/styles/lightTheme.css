@@ -8,9 +8,11 @@
     --palette-background-main: var(--palette-grey-6);
     --palette-background-item: var(--white);
 
+    /* login and signup */
     --palette-h1: var( --palette-blue-4);
     --palette-h2: var( --palette-blue-3);
     --palette-h3: var(--palette-grey-2);
     --palette-h4: var(--palette-grey-2);
     --palette-p: var(--palette-blue-4);
+    --palette-icon: brightness(0) saturate(100%) invert(72%) sepia(6%) saturate(127%) hue-rotate(214deg) brightness(88%) contrast(90%);
 }

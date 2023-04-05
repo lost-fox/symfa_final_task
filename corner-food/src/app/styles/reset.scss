@@ -1,15 +1,15 @@
-*, *:before, *:after{
+*, *::before, *::after{
     box-sizing: border-box;
 }
 
-html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video{
+html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video, hr, input{
     margin: 0;
     padding: 0;
-    border: 0;
-    font-size: 100%;
     font: inherit;
+    font-size: 100%;
     vertical-align: baseline;
-    text-rendering: optimizeLegibility;
+    border: 0;
+    text-rendering: optimizelegibility;
     -webkit-font-smoothing: antialiased;
     text-size-adjust: none;
 }
@@ -30,7 +30,7 @@ blockquote, q{
     quotes: none;
 }
 
-blockquote:before, blockquote:after, q:before, q:after{
+blockquote::before, blockquote::after, q::before, q::after{
     content: '';
     content: none;
 }
@@ -42,6 +42,7 @@ table{
 
 input{
     --webkit-appearance: none;
+
     border-radius: 0;
 }
 

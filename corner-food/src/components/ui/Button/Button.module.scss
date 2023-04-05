@@ -1,0 +1,17 @@
+.button {
+    color: var(--palette-blue-4);
+    background-color: var(--yellow);
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.auth {
+    width: 248px;
+    height: 45px;
+    color: var(--palette-blue-3);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 28px;
+    border-radius: 15px;
+}

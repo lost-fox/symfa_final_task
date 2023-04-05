@@ -1,0 +1,26 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 43px;
+    cursor: pointer;
+
+    .title {
+      color: var(--palette-h1);
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 27px;
+      transition: all 0.5s ease;
+
+      &:hover {
+        font-weight: 700;
+      }
+    }
+
+    .line {
+        width: 90%;
+        border: 1px solid var(--yellow);
+    }
+}
