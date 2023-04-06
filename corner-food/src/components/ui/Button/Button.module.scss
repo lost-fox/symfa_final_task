@@ -4,6 +4,14 @@
     border: none;
     outline: none;
     cursor: pointer;
+
+    &:hover {
+        filter: sepia(60%);
+    }
+
+    &:active {
+        filter: saturate(50%);
+    }
 }
 
 .auth {

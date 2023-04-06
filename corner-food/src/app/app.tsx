@@ -1,12 +1,12 @@
 import { memo } from 'react';
 
-import { SignUp } from 'pages/SignUp';
+import { AppRouter } from './router/AppRouter';
 
 import './app.scss';
 
 export const App = memo(() => (
     <div className="wrapper">
-        <SignUp/>
+        <AppRouter/>
     </div>
 ));
 

@@ -1,4 +1,5 @@
 import { HTMLAttributes, memo } from 'react';
+import { Link } from 'react-router-dom';
 
 import styles from './Tab.module.scss';
 
@@ -12,7 +13,7 @@ export const Tab = memo((props: ITabProps) => {
 
     return (
         <div id={id} className={wrapper}>
-            <h2 className={title}>{children}</h2>
+            <Link to={`/${id}`} ><h2 className={title}>{children}</h2></Link>
             {isActive ? <hr className={line} /> : ''}
         </div>
     );

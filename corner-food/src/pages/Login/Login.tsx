@@ -4,8 +4,6 @@ import { AuthHeader } from 'components/components/AuthHeader';
 import { Button } from 'components/ui/Button';
 import { Input } from 'components/ui/Input';
 
-import EyeOpen from '../../assets/icon/show-password-eye.svg';
-
 import styles from './Login.module.scss';
 
 export const Login = memo(() => {
@@ -15,7 +13,7 @@ export const Login = memo(() => {
         <AuthHeader />
         <div className={inputs} >
             <Input type='text' label='Email Address' />
-            <Input type='password' label='Password' icon={EyeOpen} />
+            <Input type='password' label='Password' icon />
         </div>
         <p className={link}>Forgot Password?</p>
 
