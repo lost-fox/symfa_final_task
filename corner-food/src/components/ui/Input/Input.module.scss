@@ -20,8 +20,12 @@
         line-height: 28px;
         background-color: transparent;
         border: none;
-        border-bottom: 1px solid #104E5B;
+        border-bottom: 1px solid var(--palette-input);
         outline: none;
+
+        &:invalid {
+            border-bottom: 1px solid var(--red);
+        }
     }
 
     .icon {

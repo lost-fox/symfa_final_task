@@ -15,4 +15,5 @@
     --palette-h4: var(--palette-grey-2);
     --palette-p: var(--palette-blue-4);
     --palette-icon: brightness(0) saturate(100%) invert(72%) sepia(6%) saturate(127%) hue-rotate(214deg) brightness(88%) contrast(90%);
+    --palette-input: var(--palette-blue-4);
 }

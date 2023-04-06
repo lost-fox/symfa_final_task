@@ -12,6 +12,11 @@
     &:active {
         filter: saturate(50%);
     }
+
+    &:disabled {
+        cursor: no-drop;
+        filter: grayscale(120%);
+    }
 }
 
 .auth {
