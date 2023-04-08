@@ -1,0 +1,56 @@
+.wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+    padding: 0 36px;
+    background: var(--palette-background-item);
+
+    .iconItems {
+        display: flex;
+        gap: 45px;
+        align-items: center;
+
+        .icon {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            fill: var(--palette-grey-5);
+        }
+    }
+
+    .orderBtn {
+        position: absolute;
+        bottom: 15px;
+        left: 142px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 70px;
+        height: 70px;
+        background: var( --patette-background-btn);
+        border-radius: 50%;
+
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--yellow);
+            border: 2px solid var(--palette-background-item);
+            border-radius: 50%;
+
+            .icon {
+                width: 22px;
+                height: 22px;
+                cursor: pointer;
+                fill: var( --palette-blue-4);
+            }
+        }
+    }
+
+
+}

@@ -1,0 +1,27 @@
+.wrapper {
+    height: 93.5vh;
+    padding: 29px 29px 0 23px;
+
+    .chipsItems {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 12px;
+        align-items: center;
+        margin-top: 35px;
+        overflow-x: auto;
+        overflow-y: visible;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    .dishItems {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+        margin-top: 31px;
+        row-gap: 25px;
+    }
+}

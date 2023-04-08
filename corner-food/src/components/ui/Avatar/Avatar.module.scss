@@ -1,0 +1,17 @@
+.wrapper {
+    cursor: pointer;
+    
+    .image {
+       border-radius: 50%;
+    }
+
+    .small {
+        width: 54px;
+        height: 54px;
+    }
+
+    .big {
+        width: 70px;
+        height: 70px;
+    }
+}

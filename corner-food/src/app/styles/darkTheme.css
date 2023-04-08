@@ -16,4 +16,11 @@
     --palette-p: var(--palette-grey-6);
     --palette-icon: brightness(0) saturate(100%) invert(82%) sepia(14%) saturate(9%) hue-rotate(131deg) brightness(94%) contrast(98%);
     --palette-input: var( --palette-gray-0);
+
+
+    /* home and favorite */
+    --patette-h1-home: var(--yellow);
+    --palette-text-home: var(--palette-grey-5);
+    --patette-background-btn: var(--palette-gray-0);
+    --palette-icon-home: brightness(0) saturate(100%) invert(97%) sepia(37%) saturate(212%) hue-rotate(281deg) brightness(110%) contrast(90%);
 }

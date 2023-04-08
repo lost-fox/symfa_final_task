@@ -1,0 +1,37 @@
+.wrapper {
+    .info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .title{
+        color: var( --patette-h1-home);
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 36px;
+        text-align: left;
+        }
+    }
+
+    .filtersWrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 27px;
+
+        .filter {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--yellow);
+            border-radius: 50%;
+
+            .filterIcon {
+                fill: var( --palette-blue-4);
+            }
+        }
+    }
+
+}
