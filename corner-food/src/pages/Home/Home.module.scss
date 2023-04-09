@@ -21,7 +21,13 @@
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-around;
+        max-height: 425px;
         margin-top: 31px;
+        overflow-y: auto;
         row-gap: 25px;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 }

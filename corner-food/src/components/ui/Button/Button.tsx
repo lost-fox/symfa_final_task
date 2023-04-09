@@ -4,16 +4,18 @@ import classNames from 'classnames';
 import styles from './Button.module.scss';
 
 interface IButtonProps {
+    id?: string;
     value: string;
     type: string;
-    onClick: () => void;
+    onClick?: () => void;
     disabled?: boolean;
 }
 
 export const Button = memo((props: IButtonProps) => {
-    const { value, type, onClick, disabled } = props;
+    const { id, value, type, onClick, disabled } = props;
 
     return <button
+        id={id}
         className={classNames(styles.button, styles[type])}
         type='button'
         onClick={onClick}

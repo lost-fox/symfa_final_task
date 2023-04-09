@@ -4,4 +4,14 @@
     padding: 6px;
     background: rgb(253 194 122 / 90%);
     border-radius: 10px 0 0;
+
+    .active {
+        fill: var(--red);
+    }
+
+    .noActive {
+        path:last-child {
+            fill-opacity: 0;
+        }
+    }
 }

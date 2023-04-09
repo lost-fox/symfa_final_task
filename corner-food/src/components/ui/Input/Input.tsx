@@ -1,7 +1,7 @@
 import { memo, useState } from 'react';
 
-import EyeOpen from '../../../assets/icon/show-password-eye.svg';
-import EyeClose from '../../../assets/icon/show-password-eye-closed.svg';
+import  { ReactComponent as EyeOpen } from '../../../assets/icon/show-password-eye.svg';
+import { ReactComponent as EyeClose } from '../../../assets/icon/show-password-eye-closed.svg';
 
 import styles from './Input.module.scss';
 
@@ -39,7 +39,7 @@ export const Input = memo((props: IInputProps) => {
         />
         {icon
             ? <div onClick={handlerIconClick} role='button' tabIndex={0} >
-                <img src={isShow ? EyeClose : EyeOpen} className={styles.icon}  alt='icons'  />
+                {isShow ? <EyeClose className={styles.icon}/> : <EyeOpen className={styles.icon}/>}
             </div>
             : ''}
     </div>;

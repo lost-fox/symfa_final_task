@@ -4,11 +4,19 @@ import { ReactComponent as LikeIcon } from '../../../assets/icon/favorite.svg';
 
 import styles from './Like.module.scss';
 
-export const Like = memo(() => {
-    const { wrapper } = styles;
+interface ILike {
+    isActive: boolean;
+    onClick?: () => void;
+}
 
-    return <div className={wrapper}>
-        <LikeIcon/>
+export const Like = memo((props: ILike) => {
+    const { wrapper } = styles;
+    const { isActive, onClick } = props;
+
+    const likeClassName = isActive ? styles.active : styles.noActive;
+
+    return <div className={wrapper} onClick={onClick}>
+        <LikeIcon className={likeClassName}/>
     </div>;
 });
 

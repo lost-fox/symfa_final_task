@@ -1,0 +1,78 @@
+.wrapper {
+    height: 93.5vh;
+    padding: 29px 29px 0 23px;
+
+    .chipsItems {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 12px;
+        align-items: center;
+        margin-top: 35px;
+        overflow-x: auto;
+        overflow-y: visible;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    .banner {
+        display: flex;
+        gap: 10px;
+        width: 289px;
+        height: 145px;
+        margin-top: 39px;
+        padding: 19px 0 19px 23px;
+        background: var(--light-yellow);
+        border-radius: 25px;
+
+        .infoBlock {
+            text-align: left;
+
+            .title {
+                color: var(--palette-blue-4);
+                font-weight: 700;
+                font-size: 17px;
+                line-height: 26px;
+            }
+
+            .subtitle {
+                margin-top: -10px;
+                margin-bottom: 15px;
+                color: var(--palette-grey-2);
+                font-weight: 400;
+                font-size: 11px;
+                line-height: 25px;
+            }
+        }
+    }
+
+    .headline {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 21px;
+
+        .headlineTitle {
+            color: var(--palette-text-home);
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 27px;
+        }
+    }
+
+    .dishItems {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+        max-height: 200px;
+        margin-top: 21px;
+        overflow-y: auto;
+        row-gap: 25px;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}

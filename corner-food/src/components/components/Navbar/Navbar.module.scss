@@ -18,8 +18,18 @@
             height: 20px;
             cursor: pointer;
             fill: var(--palette-grey-5);
+
+            &:hover {
+                filter: sepia(20%);
+            }
+        }
+
+        .iconActive {
+            fill: var(--yellow);
         }
     }
+
+
 
     .orderBtn {
         position: absolute;
@@ -48,6 +58,10 @@
                 height: 22px;
                 cursor: pointer;
                 fill: var( --palette-blue-4);
+            }
+
+            &:hover {
+                filter: sepia(30%);
             }
         }
     }

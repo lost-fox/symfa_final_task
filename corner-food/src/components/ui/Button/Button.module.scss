@@ -36,3 +36,23 @@
     font-size: 8px;
     border-radius: 0 15px;
 }
+
+.banner {
+    width: 90px;
+    height: 23px;
+    font-weight: 700;
+    font-size: 9px;
+    border-radius: 20px;
+}
+
+.white {
+    width: 80px;
+    height: 30px;
+    color: var(--palette-text-home);
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 15px;
+    background: none;
+    border: 1.5px solid var(--palette-grey-2);
+    border-radius: 10px;
+}
