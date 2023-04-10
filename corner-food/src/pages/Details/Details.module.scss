@@ -1,0 +1,110 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
+    padding-left: 38px;
+
+    .imageInfo {
+        position: relative;
+        width: 100%;
+        height: 296px;
+
+        .image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-bottom-left-radius: 40px;
+        }
+
+        .likeItem {
+            position: absolute;
+            right: 0;
+            bottom : 0;
+        }
+    }
+
+    .info {
+        height: 100%;
+        padding: 22px 20px 32px 28px;
+        background: var(--palette-background-item);
+        border-top-left-radius: 40px;
+
+        .titles {
+            display: flex;
+            justify-content: space-between;
+            text-align: left;
+
+            .title {
+                color: var(--palette-text-home);
+                font-weight: 700;
+                font-size: 24px;
+                line-height: 36px;
+            }
+
+            .subtitle {
+                margin-top: -11px;
+                color: var(--palette-grey-2);
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 28px;
+            }
+
+            .price {
+                color: var( --palette-text-home);
+                font-weight: 700;
+                font-size: 24px;
+                line-height: 36px;
+
+                .currency {
+                    color: var(--green);
+                    font-weight: 300;
+                    font-size: 14px;
+                    line-height: 21px;
+                }
+            }
+        }
+
+        .delivery {
+            display: flex;
+            gap: 21px;
+            margin-top: 19px;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
+
+            .deliveryItem {
+                display: flex;
+                gap: 7px;
+                align-items: center;
+            }
+        }
+
+        .about {
+          margin-top: 30px;
+          text-align: left;
+
+          .aboutTitle {
+            color: var(--palette-text-home);
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 27px;
+          }
+
+          .aboutDescription {
+            height: 139px;
+            margin-top: 5px;
+            color: var(--palette-grey-2);
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 28px;
+          }
+        }
+
+        .order {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 29px;
+        }
+    }
+}

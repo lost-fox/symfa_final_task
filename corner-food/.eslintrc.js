@@ -187,6 +187,8 @@ module.exports = {
         'no-restricted-syntax': 'off',
         'class-methods-use-this': 'off',
         'no-underscore-dangle': 'off',
+        'no-return-assign': 'off',
+        'no-param-reassign': 'off',
         'simple-import-sort/imports': [
             'error',
             {
@@ -228,10 +230,6 @@ module.exports = {
         ],
     },
     overrides: [
-        {
-            files: ['src/**/*.slice.ts'],
-            rules: { 'no-param-reassign': ['error', { props: false }] },
-        },
         {
             files: 'src/shared/ui/**/*.tsx',
             rules: {

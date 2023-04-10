@@ -5,9 +5,9 @@ import styles from './Button.module.scss';
 
 interface IButtonProps {
     id?: string;
-    value: string;
+    value: string | React.ReactNode;
     type: string;
-    onClick?: () => void;
+    onClick?: (event: React.MouseEvent) => void;
     disabled?: boolean;
 }
 

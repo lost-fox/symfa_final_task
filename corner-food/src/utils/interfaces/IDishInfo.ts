@@ -6,4 +6,6 @@ export interface IDishInfo {
     image: string;
     type: string;
     price: number;
+    timeDelivery: number;
+    rating: number;
 }

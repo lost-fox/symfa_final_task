@@ -10,6 +10,8 @@ export const MOCKDATADISH = [
         image: 'https://img.jamieoliver.com/home/wp-content/uploads/features-import/2019/01/healthydishes_LEAD_630x420.jpg',
         type: 'Spicy',
         price: 8.5,
+        timeDelivery: 25,
+        rating: 4.8,
     },
     {
         id: '2',
@@ -20,6 +22,8 @@ export const MOCKDATADISH = [
         image: 'https://img.jamieoliver.com/home/wp-content/uploads/features-import/2019/01/healthydishes_LEAD_630x420.jpg',
         type: 'Spicy',
         price: 7.5,
+        timeDelivery: 25,
+        rating: 4.8,
     },
     {
         id: '3',
@@ -30,6 +34,8 @@ export const MOCKDATADISH = [
         image: 'https://img.jamieoliver.com/home/wp-content/uploads/features-import/2019/01/healthydishes_LEAD_630x420.jpg',
         type: 'Spicy',
         price: 6.5,
+        timeDelivery: 25,
+        rating: 4.8,
     },
     {
         id: '4',
@@ -40,6 +46,8 @@ export const MOCKDATADISH = [
         image: 'https://img.jamieoliver.com/home/wp-content/uploads/features-import/2019/01/healthydishes_LEAD_630x420.jpg',
         type: 'Spicy',
         price: 4.5,
+        timeDelivery: 25,
+        rating: 4.8,
     },
 ];
 
