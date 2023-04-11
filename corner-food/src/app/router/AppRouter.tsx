@@ -5,6 +5,7 @@ import { Favorite } from 'pages/Favorite';
 import { Home } from 'pages/Home';
 import { Login } from 'pages/Login';
 import { Notification } from 'pages/Notification';
+import { Order } from 'pages/Order';
 import { SignUp } from 'pages/SignUp';
 import { ROUTES } from 'utils/constants/routes.enum';
 
@@ -16,5 +17,6 @@ export const AppRouter = () => (
         <Route path={ROUTES.FAVORITE} element={<Favorite/>} />
         <Route path={ROUTES.DETAILS} element={<Details/>} />
         <Route path={ROUTES.NOTIFICATION} element={<Notification/>} />
+        <Route path={ROUTES.ORDER} element={<Order/>} />
     </Routes>
 );

@@ -1,0 +1,47 @@
+.wrapper {
+    position: relative;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    width: 302px;
+    height: 101px;
+    padding: 15px;
+    text-align: left;
+    background: var(--palette-background-item);
+    border-radius: 20px;
+
+    .info {
+        .title {
+            color: var(--palette-text-home);
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+        .subtitle {
+            color: var( --palette-grey-2);
+            font-weight: 400;
+            font-size: 10px;
+        }
+
+        .price {
+            color: var( --palette-text-home);
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 30px;
+
+            .currency {
+                color: var(--green);
+                font-weight: 300;
+                font-size: 14px;
+                line-height: 21px;
+            }
+        }
+    }
+
+    .count {
+        position: absolute;
+        right: 8px;
+        bottom: 7px;
+    }
+}

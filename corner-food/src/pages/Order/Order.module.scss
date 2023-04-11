@@ -1,0 +1,35 @@
+.wrapper {
+    padding: 29px 29px 40px 24px;
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .title {
+            color: var(--palette-text-home);
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 36px;
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            fill: var( --palette-icon-close);
+        }
+    }
+
+    .orderItems {
+        display: flex;
+        flex-direction: column;
+        max-height: 220px;
+        margin-top: 31px;
+        overflow-y: auto;
+        row-gap: 25px;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+    }
+}
