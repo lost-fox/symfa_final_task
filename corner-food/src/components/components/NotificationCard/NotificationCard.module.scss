@@ -1,0 +1,74 @@
+.wrapper {
+    width: 302px;
+    height: 136px;
+    text-align: left;
+    background: var(--palette-background-item);
+    border-radius: 20px;
+
+    .personInfo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 15px;
+
+        .person {
+            display: flex;
+            gap: 13px;
+
+            .info {
+                .title {
+                    color: var(--palette-text-home);
+                    font-weight: 700;
+                    font-size: 14px;
+                    line-height: 21px;
+                }
+
+                .id {
+                    color: var(--palette-grey-2);
+                    font-weight: 400;
+                    font-size: 12px;
+                }
+
+                .worker {
+                    color: var(--palette-grey-8);
+                    font-weight: 600;
+                    font-size: 11px;
+                    line-height: 18px;
+                }
+            }
+        }
+    }
+
+    .br {
+        width: 100%;
+        height: 1px;
+        background: url("../../../assets/icon/line.svg");
+    }
+
+    .deliveryInfo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 13px 20px;
+
+        .deliveryItem {
+           display: flex;
+           gap: 6px;
+           align-items: center;
+
+           .deliveryDecsription {
+              .deliveryTitle {
+                color: var(--palette-grey-8);
+                font-weight: 500;
+                font-size: 8px;
+              }
+
+             .deliveryValue {
+                color: var(--palette-text-home);
+                font-weight: 600;
+                font-size: 9px;
+             }
+           }
+        }
+    }
+}

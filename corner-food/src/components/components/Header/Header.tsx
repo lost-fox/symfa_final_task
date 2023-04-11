@@ -19,6 +19,7 @@ export const Header = memo(() => {
                 src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUQF_PSw0kE57U07rL6m3A41QDolNQkejlPg
                 &usqp=CAU'
                 size='small'
+                shape='circle'
             />
         </div>
         <div className={filtersWrapper}>
