@@ -1,0 +1,25 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 55px;
+    padding: 11px 10px 11px 21px;
+    background: var(--palette-background-item);
+    border-radius: 15px;
+
+    .icon {
+        width: 22px;
+        height: 22px;
+    }
+
+    .input {
+        width: 149px;
+    }
+
+    input[placeholder] {
+        color: var(--palette-grey-9);
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 28px;
+    }
+}
