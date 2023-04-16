@@ -6,6 +6,7 @@ import { Home } from 'pages/Home';
 import { Login } from 'pages/Login';
 import { Notification } from 'pages/Notification';
 import { Order } from 'pages/Order';
+import { Profile } from 'pages/Profile';
 import { SignUp } from 'pages/SignUp';
 import { ROUTES } from 'utils/constants/routes.enum';
 
@@ -18,5 +19,6 @@ export const AppRouter = () => (
         <Route path={ROUTES.DETAILS} element={<Details/>} />
         <Route path={ROUTES.NOTIFICATION} element={<Notification/>} />
         <Route path={ROUTES.ORDER} element={<Order/>} />
+        <Route path={ROUTES.PROFILE} element={<Profile/>}/>
     </Routes>
 );
