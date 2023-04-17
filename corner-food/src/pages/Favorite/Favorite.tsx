@@ -45,7 +45,7 @@ export const Favorite = memo(() => {
                 </div>
 
                 <div className={dishItems}>
-                    {MOCKDATADISH.map(item => <DishCard key={item.id} value={item} />)}
+                    {MOCKDATADISH.map(item => <DishCard key={item._id} value={item} />)}
                 </div>
             </main>
         </div>

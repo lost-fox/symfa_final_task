@@ -1,25 +1,26 @@
 import { memo, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { Button } from 'components/ui/Button';
 import { Like } from 'components/ui/Like';
-import { IDishInfo } from 'utils/interfaces/IDishInfo';
+import { IMeals } from 'store/types/meals';
 
 import styles from './DishCard.module.scss';
 
 interface IDishCard {
-    value: IDishInfo;
+    value: IMeals;
 }
 
 export const DishCard = memo((props: IDishCard) => {
     const { wrapper, imageWrapper, likeItem, info } = styles;
-    const { id, name, subtitle, image, price } = props.value;
+    const { _id, name, subtitle, image, price } = props.value;
     const [isLike, setIsLike] = useState<boolean>(false);
 
     const handlerBtn = () => console.log('hello!!');
 
     const handlerLike = () => setIsLike(!isLike);
 
-    return <div className={wrapper}>
+    return <Link  className={wrapper} to={`/${_id}`}>
         <div className={imageWrapper}>
             <img
                 className={styles.image}
@@ -35,8 +36,8 @@ export const DishCard = memo((props: IDishCard) => {
             <p className={styles.subtitle}>{subtitle}</p>
             <p className={styles.price}><span className={styles.currency}>$</span>{price}</p>
         </div>
-        <Button id={id} value='Add to Cart' type='dish' onClick={handlerBtn} />
-    </div>;
+        <Button id={_id} value='Add to Cart' type='dish' onClick={handlerBtn} />
+    </Link>;
 });
 
 DishCard.displayName = 'DishCards';

@@ -1,21 +1,47 @@
-import { memo, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 
 import { DishCard } from 'components/components/DishCard';
 import { Header } from 'components/components/Header';
 import { Navbar } from 'components/components/Navbar';
 import { Chips } from 'components/ui/Chips';
-import { mockDataChips, MOCKDATADISH } from 'pages/mockData';
+import { useAppSelector } from 'store/rootReducer';
+import { getMeals } from 'store/services';
+import { useAppDispatch } from 'store/store';
 
 import styles from './Home.module.scss';
 
 export const Home = memo(() => {
+    const dispatch = useAppDispatch();
+    const { meals, search } = useAppSelector(state => state);
     const { wrapper, chipsItems, dishItems } = styles;
     const [activeChips, setActiveChips] = useState<string>('');
+    const [chips, setChips] = useState<string[]>([]);
+
+    const getChips = () => {
+        const data = meals.meals.map(item => item.type);
+        const items = [... new Set(data)];
+
+        setChips(items);
+    };
+
+    useEffect(() => {
+        getMeals(dispatch);
+
+    }, [dispatch]);
+
+    useEffect(() => {
+        getChips();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [meals]);
 
     const handlerChips = (event: React.MouseEvent) => {
         const { id } = event.target as HTMLDivElement;
 
-        setActiveChips(id);
+        if (id === activeChips) {
+            setActiveChips('');
+        } else {
+            setActiveChips(id);
+        }
     };
 
     return <>
@@ -23,12 +49,15 @@ export const Home = memo(() => {
             <Header />
             <main>
                 <div className={chipsItems}>
-                    {mockDataChips.map(item => <Chips
+                    {chips.map(item => <Chips
                         key={item} title={item} isActive={activeChips === item} onClick={handlerChips} />)}
 
                 </div>
                 <div className={dishItems}>
-                    {MOCKDATADISH.map(item => <DishCard key={item.id} value={item} />)}
+                    {meals.meals
+                        .filter(item => activeChips ? item.type === activeChips : item )
+                        .filter(item => item.name.toLowerCase().includes(search.search.toLowerCase()))
+                        .map(item => <DishCard key={item._id} value={item} />)}
                 </div>
             </main>
         </div>

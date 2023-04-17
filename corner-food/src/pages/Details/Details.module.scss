@@ -91,12 +91,17 @@
           }
 
           .aboutDescription {
-            height: 139px;
+            max-height: 139px;
             margin-top: 5px;
+            overflow-y: auto;
             color: var(--palette-grey-2);
             font-weight: 400;
             font-size: 14px;
             line-height: 28px;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
           }
         }
 

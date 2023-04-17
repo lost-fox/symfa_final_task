@@ -16,7 +16,7 @@ export const AppRouter = () => (
         <Route path={ROUTES.SIGNUP} element={<SignUp/>} />
         <Route path={ROUTES.HOME} element={<Home/>} />
         <Route path={ROUTES.FAVORITE} element={<Favorite/>} />
-        <Route path={ROUTES.DETAILS} element={<Details/>} />
+        <Route path="/:id" element={<Details/>} />
         <Route path={ROUTES.NOTIFICATION} element={<Notification/>} />
         <Route path={ROUTES.ORDER} element={<Order/>} />
         <Route path={ROUTES.PROFILE} element={<Profile/>}/>
