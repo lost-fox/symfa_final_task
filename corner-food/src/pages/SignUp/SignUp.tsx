@@ -3,6 +3,7 @@ import { memo, useState } from 'react';
 import { AuthHeader } from 'components/components/AuthHeader';
 import { Button } from 'components/ui/Button';
 import { Input } from 'components/ui/Input';
+import { createUser } from 'store/services/auth.service';
 import { validateForm } from 'utils/helpers/validateForm';
 
 import styles from './SignUp.module.scss';
@@ -46,6 +47,17 @@ export const SignUp = memo(() => {
         }
     };
 
+    const cleanForm = () => {
+        setUserName('');
+        setIsName(false);
+        setUserEmail('');
+        setIsEmail(false);
+        setPassword('');
+        setIsPassword(false);
+        setRePassword('');
+        setIsRePassword(false);
+    };
+
     const submitUserData = () => {
         const data = {
             username: userName,
@@ -53,7 +65,8 @@ export const SignUp = memo(() => {
             password,
         };
 
-        console.log(data);
+        createUser(data);
+        cleanForm();
     };
 
     const handlerValidBtn = () => isName && isEmail && isPassword && isRePassword && (password === rePassword);
@@ -67,6 +80,7 @@ export const SignUp = memo(() => {
                     type='text'
                     label='Username'
                     minLength={3}
+                    value={userName}
                     onChange={handlerUserData}
                 />
                 <Input
@@ -74,6 +88,7 @@ export const SignUp = memo(() => {
                     type='text'
                     label='Email Address'
                     pattern='\S+@\S+\.\S+'
+                    value={userEmail}
                     onChange={handlerUserData}
                 />
                 <Input
@@ -82,6 +97,7 @@ export const SignUp = memo(() => {
                     label='Password'
                     icon
                     minLength={6}
+                    value={password}
                     onChange={handlerUserData}
                 />
                 <Input
@@ -90,6 +106,7 @@ export const SignUp = memo(() => {
                     label='Confirm Password'
                     icon
                     minLength={6}
+                    value={rePassword}
                     onChange={handlerUserData}
                 />
             </div>

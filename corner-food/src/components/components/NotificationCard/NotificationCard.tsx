@@ -38,8 +38,8 @@ export const NotificationCard = memo(() => {
             <div className={styles.deliveryItem}>
                 <Icon> <MapIcon/></Icon>
                 <div className={styles.deliveryDecsription}>
-                    <p className={styles.deliveryTitle}>Your Delivery Time</p>
-                    <p className={styles.deliveryValue}>55 minutes</p>
+                    <p className={styles.deliveryTitle}>Your Delivery Address</p>
+                    <p className={styles.deliveryValue}>Kediri City</p>
                 </div>
             </div>
         </div>

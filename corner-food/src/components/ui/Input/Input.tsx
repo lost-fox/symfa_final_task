@@ -12,12 +12,13 @@ interface IInputProps {
     icon?: boolean;
     minLength?: number;
     pattern?: string;
+    value?: string;
     onChange: (event: React.ChangeEvent) => void;
 }
 
 export const Input = memo((props: IInputProps) => {
     const { wrapper } = styles;
-    const { id, type, label, icon, minLength, pattern, onChange } = props;
+    const { id, type, label, icon, minLength, pattern, value, onChange } = props;
     const [isShow, setIsShow] = useState<boolean>(false);
 
     const handlerIconClick = () => {
@@ -35,6 +36,7 @@ export const Input = memo((props: IInputProps) => {
             name={label}
             minLength={minLength}
             pattern={pattern}
+            value={value}
             onChange={onChange}
         />
         {icon

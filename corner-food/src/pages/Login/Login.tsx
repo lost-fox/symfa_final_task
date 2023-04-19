@@ -3,6 +3,7 @@ import { memo, useState } from 'react';
 import { AuthHeader } from 'components/components/AuthHeader';
 import { Button } from 'components/ui/Button';
 import { Input } from 'components/ui/Input';
+import { getToken } from 'store/services/auth.service';
 import { validateForm } from 'utils/helpers/validateForm';
 
 import styles from './Login.module.scss';
@@ -32,13 +33,21 @@ export const Login = memo(() => {
         }
     };
 
+    const cleanForm = () => {
+        setUserEmail('');
+        setIsEmail(false);
+        setPassword('');
+        setIsPassword(false);
+    };
+
     const submitUserData = () => {
         const data = {
             email: userEmail,
             password,
         };
 
-        console.log(data);
+        getToken(data);
+        cleanForm();
     };
 
     const handlerValidBtn = () => isEmail && isPassword;
@@ -51,6 +60,7 @@ export const Login = memo(() => {
                 type='text'
                 label='Email Address'
                 pattern='\S+@\S+\.\S+'
+                value={userEmail}
                 onChange={handlerUserData}
             />
             <Input
@@ -59,6 +69,7 @@ export const Login = memo(() => {
                 label='Password'
                 minLength={6}
                 icon
+                value={password}
                 onChange={handlerUserData}
             />
         </div>
