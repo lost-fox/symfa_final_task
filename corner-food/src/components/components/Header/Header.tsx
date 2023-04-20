@@ -2,6 +2,8 @@ import { memo } from 'react';
 
 import { Avatar } from 'components/ui/Avatar';
 import { Search } from 'components/ui/Search';
+import { useAppSelector } from 'store/rootReducer';
+import { DEFAULT_AVATAR } from 'utils/constants/common';
 
 import { ReactComponent as FilterIcon } from '../../../assets/icon/filter.svg';
 
@@ -9,6 +11,7 @@ import styles from './Header.module.scss';
 
 export const Header = memo(() => {
     const { wrapper, title, info, filtersWrapper, filter, filterIcon } = styles;
+    const { user } = useAppSelector(state => state);
 
     return <div className={wrapper}>
         <div className={info}>
@@ -16,8 +19,7 @@ export const Header = memo(() => {
                 Quality food
             </h1>
             <Avatar
-                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUQF_PSw0kE57U07rL6m3A41QDolNQkejlPg
-                &usqp=CAU'
+                src={user.user?.image || DEFAULT_AVATAR}
                 size='small'
                 shape='circle'
             />

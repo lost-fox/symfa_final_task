@@ -3,14 +3,17 @@ import { useLocation } from 'react-router-dom';
 
 import { Avatar } from 'components/ui/Avatar';
 import { Tab } from 'components/ui/Tab';
+import { useAppSelector } from 'store/rootReducer';
+import { DEFAULT_AVATAR } from 'utils/constants/common';
 
 import { ThemeSwitcher } from '../ThemeSwitcher';
 
 import styles from './ProfileHeader.module.scss';
 
 export const ProfileHeader = memo(() => {
-    const { wrapper, header, user, tabs } = styles;
+    const { wrapper, header, tabs } = styles;
     const location = useLocation();
+    const { user } = useAppSelector(state => state);
 
     return <div className={wrapper}>
         <header className={header}>
@@ -18,16 +21,15 @@ export const ProfileHeader = memo(() => {
             <ThemeSwitcher/>
         </header>
 
-        <div className={user}>
+        <div className={styles.user}>
             <Avatar
-                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUQF_PSw0kE57U07rL6m3A41QDolNQkejlPg
-                &usqp=CAU'
+                src={user.user?.image || DEFAULT_AVATAR}
                 size="big"
                 shape="circle"/>
             <div className={styles.userInfo}>
-                <h2 className={styles.name}>Achmad Qomarudin</h2>
-                <p className={styles.subtitle}>achmadprogrammer@gmail.com</p>
-                <p className={styles.subtitle}>User ID : 37664872</p>
+                <h2 className={styles.name}>{user.user?.username}</h2>
+                <p className={styles.subtitle}>{user.user?.email}</p>
+                <p className={styles.subtitle}>User ID : {user.user?._id}</p>
             </div>
         </div>
 

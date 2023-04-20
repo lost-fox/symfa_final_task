@@ -16,5 +16,4 @@ export const AlreadyAuth = ({ children }: IRequireAuthProps) => {
     }
 
     return children;
-    // const auth = document.cookie.replace(/Token=/g, '');
 };
