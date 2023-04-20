@@ -36,7 +36,7 @@ export const Navbar = memo(() => {
             <Link to={ROUTES.NOTIFICATION}>
                 <NotificationIcon className={path === ROUTES.NOTIFICATION ?  activeIconClass : icon}/>
             </Link>
-            <Link to={ROUTES.PROFILE}>
+            <Link to={`${ROUTES.PROFILE}?activeTab=payment`}>
                 <ProfileIcon className={path === ROUTES.PROFILE ?  activeIconClass : icon}/>
             </Link>
         </div>

@@ -1,17 +1,34 @@
 import { memo } from 'react';
+import { useLocation } from 'react-router-dom';
 
+import { Account } from 'components/components/Account';
+import { History } from 'components/components/History';
 import { Navbar } from 'components/components/Navbar';
 import { Payment } from 'components/components/Payment';
 import { ProfileHeader } from 'components/components/ProfileHeader';
 
-import styles from './Profile.module.scss';
-
 export const Profile = memo(() => {
-    const { wrapper } = styles;
+    const location = useLocation();
 
-    return <div className={wrapper}>
+    const mainPart = () => {
+        if (location.search.includes('account')) {
+            return <Account/>;
+        }
+
+        if (location.search.includes('payment')) {
+            return <Payment/>;
+        }
+
+        return <History/>;
+
+    };
+
+    return <div>
         <ProfileHeader/>
-        <Payment/>
+        {
+            mainPart()
+        }
+
         <Navbar/>
     </div>;
 });

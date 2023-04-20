@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import { Avatar } from 'components/ui/Avatar';
 import { Tab } from 'components/ui/Tab';
@@ -6,10 +7,13 @@ import { Tab } from 'components/ui/Tab';
 import styles from './ProfileHeader.module.scss';
 
 export const ProfileHeader = memo(() => {
-    const { wrapper, user, tabs } = styles;
+    const { wrapper, header, user, tabs } = styles;
+    const location = useLocation();
 
     return <div className={wrapper}>
-        <h1 className={styles.title}>My Profile</h1>
+        <header className={header}>
+            <h1 className={styles.title}>My Profile</h1>
+        </header>
 
         <div className={user}>
             <Avatar
@@ -25,9 +29,27 @@ export const ProfileHeader = memo(() => {
         </div>
 
         <div className={tabs}>
-            <Tab isProfile>Account</Tab>
-            <Tab  isProfile isActive>Payment</Tab>
-            <Tab isProfile>History</Tab>
+            <Tab
+                id="profile?activeTab=account"
+                isProfile
+                isActive={location.search.includes('account')}
+            >
+                Account
+            </Tab>
+            <Tab
+                id="profile?activeTab=payment"
+                isProfile
+                isActive={location.search.includes('payment')}
+            >
+                Payment
+            </Tab>
+            <Tab
+                id="profile?activeTab=history"
+                isProfile
+                isActive={location.search.includes('history')}
+            >
+                History
+            </Tab>
         </div>
     </div>;
 });
