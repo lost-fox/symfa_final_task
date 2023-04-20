@@ -1,15 +1,19 @@
 import { memo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { AuthHeader } from 'components/components/AuthHeader';
 import { Button } from 'components/ui/Button';
 import { Input } from 'components/ui/Input';
 import { getToken } from 'store/services/auth.service';
+import { ROUTES } from 'utils/constants/routes.enum';
 import { validateForm } from 'utils/helpers/validateForm';
+import { IGetToken } from 'utils/interfaces/Auth.service.interface';
 
 import styles from './Login.module.scss';
 
 export const Login = memo(() => {
     const { wrapper, inputs, link } = styles;
+    const navigate = useNavigate();
     const [userEmail, setUserEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [isEmail, setIsEmail] = useState<boolean>(false);
@@ -40,13 +44,18 @@ export const Login = memo(() => {
         setIsPassword(false);
     };
 
-    const submitUserData = () => {
+    const submitUserData = async () => {
         const data = {
             email: userEmail,
             password,
         };
 
-        getToken(data);
+        const ans: IGetToken = await getToken(data);
+
+        if (ans.status === 201) {
+            navigate(`${ROUTES.HOME}`);
+        }
+
         cleanForm();
     };
 

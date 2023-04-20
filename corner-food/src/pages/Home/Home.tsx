@@ -2,7 +2,6 @@ import { memo, useEffect, useState } from 'react';
 
 import { DishCard } from 'components/components/DishCard';
 import { Header } from 'components/components/Header';
-import { Navbar } from 'components/components/Navbar';
 import { Chips } from 'components/ui/Chips';
 import { useAppSelector } from 'store/rootReducer';
 import { getMeals } from 'store/services';
@@ -44,25 +43,22 @@ export const Home = memo(() => {
         }
     };
 
-    return <>
-        <div className={wrapper}>
-            <Header />
-            <main>
-                <div className={chipsItems}>
-                    {chips.map(item => <Chips
-                        key={item} title={item} isActive={activeChips === item} onClick={handlerChips} />)}
+    return <div className={wrapper}>
+        <Header />
+        <main>
+            <div className={chipsItems}>
+                {chips.map(item => <Chips
+                    key={item} title={item} isActive={activeChips === item} onClick={handlerChips} />)}
 
-                </div>
-                <div className={dishItems}>
-                    {meals.meals
-                        .filter(item => activeChips ? item.type === activeChips : item )
-                        .filter(item => item.name.toLowerCase().includes(search.search.toLowerCase()))
-                        .map(item => <DishCard key={item._id} value={item} />)}
-                </div>
-            </main>
-        </div>
-        <Navbar />
-    </>;
+            </div>
+            <div className={dishItems}>
+                {meals.meals
+                    .filter(item => activeChips ? item.type === activeChips : item )
+                    .filter(item => item.name.toLowerCase().includes(search.search.toLowerCase()))
+                    .map(item => <DishCard key={item._id} value={item} />)}
+            </div>
+        </main>
+    </div>;
 });
 
 Home.displayName = 'Home';

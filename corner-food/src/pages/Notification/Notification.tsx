@@ -1,6 +1,5 @@
 import { memo } from 'react';
 
-import { Navbar } from 'components/components/Navbar';
 import { NotificationCard } from 'components/components/NotificationCard';
 
 import styles from './Notification.module.scss';
@@ -17,7 +16,6 @@ export const Notification = memo(() => {
                 <NotificationCard />
             </div>
         </main>
-        <Navbar/>
     </div>;
 });
 

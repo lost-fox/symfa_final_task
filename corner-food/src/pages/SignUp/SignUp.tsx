@@ -1,15 +1,18 @@
 import { memo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { AuthHeader } from 'components/components/AuthHeader';
 import { Button } from 'components/ui/Button';
 import { Input } from 'components/ui/Input';
 import { createUser } from 'store/services/auth.service';
+import { ROUTES } from 'utils/constants/routes.enum';
 import { validateForm } from 'utils/helpers/validateForm';
 
 import styles from './SignUp.module.scss';
 
 export const SignUp = memo(() => {
     const { wrapper, inputs } = styles;
+    const navigate = useNavigate();
     const [userName, setUserName] = useState<string>('');
     const [userEmail, setUserEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
@@ -58,14 +61,20 @@ export const SignUp = memo(() => {
         setIsRePassword(false);
     };
 
-    const submitUserData = () => {
+    const submitUserData = async () => {
         const data = {
             username: userName,
             email: userEmail,
             password,
         };
 
-        createUser(data);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const ans: any  = await createUser(data);
+
+        if (ans.status === 201) {
+            navigate(`${ROUTES.LOGIN}`);
+        }
+
         cleanForm();
     };
 

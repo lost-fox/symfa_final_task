@@ -3,7 +3,6 @@ import { useLocation } from 'react-router-dom';
 
 import { Account } from 'components/components/Account';
 import { History } from 'components/components/History';
-import { Navbar } from 'components/components/Navbar';
 import { Payment } from 'components/components/Payment';
 import { ProfileHeader } from 'components/components/ProfileHeader';
 
@@ -29,7 +28,6 @@ export const Profile = memo(() => {
             mainPart()
         }
 
-        <Navbar/>
     </div>;
 });
 
