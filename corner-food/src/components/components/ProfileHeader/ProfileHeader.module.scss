@@ -1,0 +1,46 @@
+.wrapper {
+    height: 250px;
+    padding: 29px 25px 0 23px;
+    background: var(--palette-background-item);
+    border-radius: 40px;
+
+    .title {
+        color: var(--palette-h1-home);
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 36px;
+        text-align: left;
+    }
+
+    .user {
+        display: flex;
+        gap: 21px;
+        align-items: center;
+        margin-top: 42px;
+
+        .userInfo {
+            text-align: left;
+
+            .name {
+                color: var(--palette-h1-home);
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 24px;
+            }
+
+            .subtitle {
+                margin-bottom: 4px;
+                color: var(--palette-grey-2);
+                font-weight: 400;
+                font-size: 11px;
+            }
+        }
+    }
+
+    .tabs {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 42px;
+    }
+}

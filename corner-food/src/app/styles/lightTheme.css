@@ -18,9 +18,10 @@
     --palette-input: var(--palette-blue-4);
 
     /* home and favorite */
-    --patette-h1-home: var(--palette-blue-4);
+    --palette-h1-home: var(--palette-blue-4);
     --palette-text-home: var(--palette-blue-4);
     --patette-background-btn: var(--palette-grey-6);
     --palette-icon-home: var(--palette-blue-4);
     --palette-icon-close: var(--palette-blue-4);
+    --palette-tab-profile: var(--black);
 }

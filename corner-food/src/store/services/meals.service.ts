@@ -10,7 +10,7 @@ export const getMeals = async (dispatch: AppDispatch): Promise<void> => {
     dispatch(mealsActions.getAllMeals(meals));
 };
 
-export const getMealById = async (id: string, dispatch: AppDispatch): Promise<void>  => {
+export const getMealById = async (id: string, dispatch: AppDispatch): Promise<void> => {
     const meal = await HttpService.get<IMeals>(`/meals/${id}`);
 
     dispatch(mealsActions.getById(meal));

@@ -4,15 +4,27 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 43px;
     cursor: pointer;
 
     .title {
+      margin-bottom: 14px;
       color: var(--palette-h1);
       font-weight: 400;
       font-size: 18px;
       line-height: 27px;
       transition: all 0.5s ease;
+
+      &:hover {
+        font-weight: 700;
+      }
+    }
+
+    .titleProfile {
+        margin-bottom: 14px;
+        color: var( --palette-tab-profile);
+        font-weight: 400;
+        font-size: 12px;
+        transition: all 0.5s ease;
 
       &:hover {
         font-weight: 700;

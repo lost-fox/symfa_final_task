@@ -19,9 +19,10 @@
 
 
     /* home and favorite */
-    --patette-h1-home: var(--yellow);
+    --palette-h1-home: var(--yellow);
     --palette-text-home: var(--palette-grey-5);
     --patette-background-btn: var(--palette-gray-0);
     --palette-icon-home: var(--palette-grey-7);
     --palette-icon-close: var( --pale-blue);
+    --palette-tab-profile: var(--white);
 }

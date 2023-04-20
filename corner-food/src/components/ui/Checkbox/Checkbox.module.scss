@@ -1,0 +1,23 @@
+.checkbox {
+    width: 18px;
+    height: 18px;
+    background: var(--white);
+    border: 1px solid var(--palette-grey-8);
+    border-radius: 50%;
+}
+
+.checkboxActive {
+    width: 18px;
+    height: 18px;
+    padding: 3px;
+    background: var(--white);
+    border: 1px solid var(--yellow);
+    border-radius: 50%;
+
+    div {
+        width: 100%;
+        height: 100%;
+        background: var(--yellow);
+        border-radius: 50%;
+    }
+}
