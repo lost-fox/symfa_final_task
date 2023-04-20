@@ -4,6 +4,8 @@ import { useLocation } from 'react-router-dom';
 import { Avatar } from 'components/ui/Avatar';
 import { Tab } from 'components/ui/Tab';
 
+import { ThemeSwitcher } from '../ThemeSwitcher';
+
 import styles from './ProfileHeader.module.scss';
 
 export const ProfileHeader = memo(() => {
@@ -13,6 +15,7 @@ export const ProfileHeader = memo(() => {
     return <div className={wrapper}>
         <header className={header}>
             <h1 className={styles.title}>My Profile</h1>
+            <ThemeSwitcher/>
         </header>
 
         <div className={user}>

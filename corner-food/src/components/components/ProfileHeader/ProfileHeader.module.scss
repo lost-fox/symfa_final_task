@@ -4,12 +4,18 @@
     background: var(--palette-background-item);
     border-radius: 40px;
 
-    .title {
-        color: var(--palette-h1-home);
-        font-weight: 700;
-        font-size: 24px;
-        line-height: 36px;
-        text-align: left;
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .title {
+            color: var(--palette-h1-home);
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 36px;
+            text-align: left;
+        }
     }
 
     .user {

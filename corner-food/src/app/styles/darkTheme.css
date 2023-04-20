@@ -1,4 +1,4 @@
-:root[app-theme='dark'] {
+:root[theme='dark'] {
 
     --palette-yellow: var(--yellow);
     --palette-green: var(--green);
