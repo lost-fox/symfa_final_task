@@ -3,6 +3,7 @@ export const validateForm = (field: string, value: string) => {
 
     switch (field) {
         case 'username':
+        case 'address':
             isValid = value.length >= 3;
 
             break;

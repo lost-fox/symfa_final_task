@@ -3,6 +3,8 @@ import { memo, useState } from 'react';
 import { Button } from 'components/ui/Button';
 import { Input } from 'components/ui/Input';
 import { useAppSelector } from 'store/rootReducer';
+import { deleteUser, getUserById, updateUser } from 'store/services/user.service';
+import { useAppDispatch } from 'store/store';
 import { validateForm } from 'utils/helpers/validateForm';
 
 import styles from './Account.module.scss';
@@ -10,7 +12,8 @@ import styles from './Account.module.scss';
 export const Account = memo(() => {
     const { wrapper } = styles;
     const { user } = useAppSelector(state => state);
-    const [userImage, setUserImage] = useState<string>('');
+    const dispatch = useAppDispatch();
+    // const [userImage, setUserImage] = useState<string>('');
     const [userName, setUserName] = useState<string>(user.user?.username || '');
     const [userEmail, setUserEmail] = useState<string>(user.user?.email || '');
     const [address, setAddress] = useState<string>(user.user?.address || '');
@@ -24,10 +27,10 @@ export const Account = memo(() => {
         const { id, value } = event.target as HTMLInputElement;
 
         switch (id) {
-            case 'image':
-                setUserImage(value);
+            // case 'image':
+            //     setUserImage(value);
 
-                break;
+            //     break;
             case 'username':
                 setUserName(value);
                 setIsName(validateForm(id, value));
@@ -63,33 +66,44 @@ export const Account = memo(() => {
         setIsPassword(true);
     };
 
-    const submitUserData =  () => {
+    const submitUserData =  async () => {
         const data = {
+            _id: user.user!._id,
             username: userName,
             email: userEmail,
-            password: newPassword.length ? newPassword : user.user?.password,
+            password: newPassword.length ? newPassword : user.user!.password,
             address,
-            image: userImage ? URL.createObjectURL(new Blob([userImage[0]])) : user.user?.image,
+            image: '',
+            favoriteDish: user.user!.favoriteDish,
         };
 
-        console.log(data);
+        await updateUser(user.user!._id, data);
+        getUserById(user.user!._id, dispatch);
 
         cleanForm();
     };
 
     const handlerValidBtn = () => isName && isEmail && isPassword && isAddress;
 
-    console.log(URL.createObjectURL(new Blob([userImage])));
+    const signOut = () => {
+        document.cookie = 'Token=""; expires=Thu, 01 Jan 1970 00:00:00 GMT;';
+        document.location.reload();
+    };
+
+    const deleteUserBtn = () => {
+        deleteUser(user.user!._id, dispatch);
+        signOut();
+    };
 
     return <div className={wrapper}>
         <div className={styles.inputs}>
-            <Input
+            {/* <Input
                 id='image'
                 type='file'
                 label='Image'
                 value={userImage}
                 onChange={handlerUserData}
-            />
+            /> */}
             <Input
                 id='username'
                 type='text'
@@ -111,7 +125,7 @@ export const Account = memo(() => {
                 id='address'
                 type='text'
                 label='Address'
-                minLength={6}
+                minLength={3}
                 value={address}
                 onChange={handlerUserData}
             />
@@ -125,7 +139,12 @@ export const Account = memo(() => {
                 onChange={handlerUserData}
             />
         </div>
-        <Button value="Save" type="auth" onClick={submitUserData} disabled={!handlerValidBtn()} />
+
+        <div className={styles.buttons}>
+            <Button value="Save" type="auth" onClick={submitUserData} disabled={!handlerValidBtn()} />
+            <Button value="Delete" type="auth" onClick={deleteUserBtn} />
+        </div>
+        <Button value="SignOut" type="auth" onClick={signOut} />
     </div>;
 });
 

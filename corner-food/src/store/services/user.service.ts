@@ -9,3 +9,13 @@ export const getUserById = async (id: string, dispatch: AppDispatch): Promise<vo
 
     dispatch(userActions.getUser(user));
 };
+
+export const updateUser = async (id: string,  body: IUser): Promise<void> => {
+    await HttpService.patch(`/users/${id}`, body);
+};
+
+export const deleteUser = async (id: string, dispatch: AppDispatch): Promise<void> => {
+    await HttpService.delete(`/users/${id}`);
+
+    dispatch(userActions.logout);
+};
