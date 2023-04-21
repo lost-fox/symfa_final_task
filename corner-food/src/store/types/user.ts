@@ -1,3 +1,5 @@
+import { IMeals } from './meals';
+
 export interface IUser {
     _id: string;
     username: string;
@@ -5,9 +7,12 @@ export interface IUser {
     password: string;
     image: string;
     address: string;
-    favoriteDish: string[];
+    favoriteDish: {
+        mealId: string;
+    }[];
 }
 
 export interface IUserSchema {
     user: IUser | null;
+    favorite: IMeals[];
 }

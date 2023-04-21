@@ -1,9 +1,11 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
+import { IMeals } from 'store/types/meals';
 import { IUser, IUserSchema } from 'store/types/user';
 
 const initialState: IUserSchema = {
     user: null,
+    favorite: [],
 };
 
 export const userSlice = createSlice({
@@ -15,6 +17,9 @@ export const userSlice = createSlice({
         },
         logout: state => {
             state.user = null;
+        },
+        getFavorite: (state, action: PayloadAction<IMeals[]>) => {
+            state.favorite = action.payload;
         },
     },
 });

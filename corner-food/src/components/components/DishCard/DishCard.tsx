@@ -1,8 +1,11 @@
-import { memo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { memo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Button } from 'components/ui/Button';
 import { Like } from 'components/ui/Like';
+import { useAppSelector } from 'store/rootReducer';
+import { favoriteMealUser } from 'store/services/user.service';
+import { useAppDispatch } from 'store/store';
 import { IMeals } from 'store/types/meals';
 
 import styles from './DishCard.module.scss';
@@ -13,22 +16,42 @@ interface IDishCard {
 
 export const DishCard = memo((props: IDishCard) => {
     const { wrapper, imageWrapper, likeItem, info } = styles;
+    const navigate = useNavigate();
+    const dispatch = useAppDispatch();
+    const { user } = useAppSelector(state => state);
     const { _id, name, subtitle, image, price } = props.value;
-    const [isLike, setIsLike] = useState<boolean>(false);
+    const [isLike, setIsLike] = useState<boolean>(
+        !!user.user!.favoriteDish.filter(item => item.mealId === _id).length,
+    );
 
     const handlerBtn = () => console.log('hello!!');
 
-    const handlerLike = () => setIsLike(!isLike);
+    const handlerLike = (event: React.MouseEvent) => {
+        event.stopPropagation();
+        const { id: mealId } = event.currentTarget as HTMLDivElement;
 
-    return <Link  className={wrapper} to={`/${_id}`}>
+        favoriteMealUser(user.user!._id, mealId, dispatch );
+
+        setIsLike(!isLike);
+    };
+
+    const handlerClickCard = (event: React.MouseEvent) => {
+        const { id } = event.target as HTMLDivElement;
+
+        if (id !== 'like') {
+            navigate(`/${_id}`);
+        }
+    };
+
+    return <div  className={wrapper} onClick={handlerClickCard}>
         <div className={imageWrapper}>
             <img
                 className={styles.image}
                 // eslint-disable-next-line max-len
                 src={image}
                 alt="dish icon" />
-            <div className={likeItem}>
-                <Like onClick={handlerLike} isActive={isLike}/>
+            <div id="like" className={likeItem}>
+                <Like id={_id} onClick={handlerLike} isActive={isLike}/>
             </div>
         </div>
         <div className={info}>
@@ -37,7 +60,7 @@ export const DishCard = memo((props: IDishCard) => {
             <p className={styles.price}><span className={styles.currency}>$</span>{price}</p>
         </div>
         <Button id={_id} value='Add to Cart' type='dish' onClick={handlerBtn} />
-    </Link>;
+    </div>;
 });
 
 DishCard.displayName = 'DishCards';

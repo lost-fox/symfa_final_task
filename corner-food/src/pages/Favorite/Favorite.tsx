@@ -1,10 +1,12 @@
-import { memo, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 
 import { DishCard } from 'components/components/DishCard';
 import { Header } from 'components/components/Header';
 import { Button } from 'components/ui/Button';
 import { Chips } from 'components/ui/Chips';
-import { mockDataChips, MOCKDATADISH } from 'pages/mockData';
+import { useAppSelector } from 'store/rootReducer';
+import { getFavoriteMealUser } from 'store/services/user.service';
+import { useAppDispatch } from 'store/store';
 
 import { ReactComponent as ShoppingImage } from '../../assets/icon/image_shopping_app.svg';
 
@@ -12,19 +14,44 @@ import styles from './Favorite.module.scss';
 
 export const Favorite = memo(() => {
     const { wrapper, chipsItems, dishItems, banner, infoBlock, headline } = styles;
+    const dispatch = useAppDispatch();
+    const { user, search } = useAppSelector(state => state);
     const [activeChips, setActiveChips] = useState<string>('');
+    const [chips, setChips] = useState<string[]>([]);
+
+    const getChips = () => {
+        const data = user.favorite.map(item => item.type);
+        const items = [... new Set(data)];
+
+        setChips(items);
+    };
+
+    useEffect(() => {
+        if (!user.user) return;
+
+        getFavoriteMealUser(user.user._id, dispatch);
+    }, [dispatch, user.user]);
+
+    useEffect(() => {
+        getChips();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [user.favorite]);
 
     const handlerChips = (event: React.MouseEvent) => {
         const { id } = event.target as HTMLDivElement;
 
-        setActiveChips(id);
+        if (id === activeChips) {
+            setActiveChips('');
+        } else {
+            setActiveChips(id);
+        }
     };
 
     return <div className={wrapper}>
         <Header />
         <main>
             <div className={chipsItems}>
-                {mockDataChips.map(item => <Chips
+                {chips.map(item => <Chips
                     key={item} title={item} isActive={activeChips === item} onClick={handlerChips} />)}
 
             </div>
@@ -43,7 +70,10 @@ export const Favorite = memo(() => {
             </div>
 
             <div className={dishItems}>
-                {MOCKDATADISH.map(item => <DishCard key={item._id} value={item} />)}
+                {user.favorite
+                    .filter(item => activeChips ? item.type === activeChips : item )
+                    .filter(item => item.name.toLowerCase().includes(search.search.toLowerCase())).
+                    map(item => <DishCard key={item._id} value={item} />)}
             </div>
         </main>
     </div>;

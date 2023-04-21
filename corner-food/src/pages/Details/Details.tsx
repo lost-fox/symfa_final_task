@@ -1,5 +1,4 @@
-/* eslint-disable max-len */
-import { memo, useEffect } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { Count } from 'components/components/Count';
@@ -8,6 +7,7 @@ import { Icon } from 'components/ui/Icon';
 import { Like } from 'components/ui/Like';
 import { useAppSelector } from 'store/rootReducer';
 import { getMealById } from 'store/services/meals.service';
+import { favoriteMealUser } from 'store/services/user.service';
 import { useAppDispatch } from 'store/store';
 
 import { ReactComponent as RatingIcon } from '../../assets/icon/star.svg';
@@ -20,6 +20,10 @@ export const Details = memo(() => {
     const { id } = useParams();
     const dispatch = useAppDispatch();
     const { meal } = useAppSelector(state => state.meals);
+    const { user } = useAppSelector(state => state);
+    const [isLike, setIsLike] = useState<boolean>(
+        !!user.user?.favoriteDish.filter(item => item.mealId === meal?._id).length,
+    );
 
     useEffect(() => {
         if (!id) return;
@@ -27,11 +31,20 @@ export const Details = memo(() => {
         getMealById(id, dispatch);
     }, [dispatch, id]);
 
+    const handlerLike = (event: React.MouseEvent) => {
+        event.stopPropagation();
+        const { id: mealId } = event.currentTarget as HTMLDivElement;
+
+        favoriteMealUser(user.user!._id, mealId, dispatch );
+
+        setIsLike(!isLike);
+    };
+
     return <div className={wrapper}>
         <div className={imageInfo}>
             <img className={styles.image} src={meal?.image} alt="dish icon" />
             <div className={styles.likeItem}>
-                <Like />
+                <Like id={id!} onClick={handlerLike} isActive={isLike} />
             </div>
 
         </div>
