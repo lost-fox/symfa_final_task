@@ -27,6 +27,9 @@ export const cartSlice = createSlice({
         deletemealToCart: (state, action:  PayloadAction<ICart>) => {
             state.cart = state.cart.filter(item => item.id !== action.payload.id);
         },
+        resetCart: state => {
+            state.cart = [];
+        },
         getDiscount: (state, action: PayloadAction<string> ) => {
             state.discount = action.payload;
         },
