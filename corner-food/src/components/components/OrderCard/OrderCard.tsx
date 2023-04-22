@@ -1,28 +1,50 @@
 import { memo } from 'react';
 
 import { Avatar } from 'components/ui/Avatar';
+import { cartActions } from 'store/slices';
+import { useAppDispatch } from 'store/store';
+import { ICart } from 'store/types/cart';
 
 import { Count } from '../Count';
 
 import styles from './OrderCard.module.scss';
 
-export const OrderCard = memo(() => {
+interface IOrderCard {
+    value: ICart;
+}
+
+export const OrderCard = memo((props: IOrderCard) => {
     const { wrapper, info } = styles;
+    const { id, name, subtitle, price, image, count } = props.value;
+    const dispatch = useAppDispatch();
+
+    const changeCount = (amount: number) => {
+
+        const data = {
+            id,
+            name,
+            subtitle,
+            price,
+            image,
+            count: amount,
+        };
+
+        dispatch(cartActions.exchangeCount(data));
+    };
 
     return <div className={wrapper}>
         <Avatar
-            // eslint-disable-next-line max-len
-            src="https://img.jamieoliver.com/home/wp-content/uploads/features-import/2019/01/healthydishes_LEAD_630x420.jpg"
+            src={image}
             size='big'
             shape='rectangle'
         />
 
         <div className={info}>
-            <h2 className={styles.title}>Grilled Fish</h2>
-            <p className={styles.subtitle}>Spicy grilled fish</p>
-            <p className={styles.price}><span className={styles.currency}>$</span>8.50</p>
+            <h2 className={styles.title}>{name}</h2>
+            <p className={styles.subtitle}>{subtitle}</p>
+            <p className={styles.price}><span className={styles.currency}>$</span>{price}</p>
         </div>
-        <Count className={styles.count} />
+        <Count className={styles.count} amount={count} onClick={changeCount} />
     </div>;
 });
 

@@ -9,13 +9,15 @@ interface IButtonProps {
     type: string;
     onClick?: (event: React.MouseEvent) => void;
     disabled?: boolean;
+    data?: string;
 }
 
 export const Button = memo((props: IButtonProps) => {
-    const { id, value, type, onClick, disabled } = props;
+    const { id, value, type, onClick, disabled, data } = props;
 
     return <button
         id={id}
+        data-type={data}
         className={classNames(styles.button, styles[type])}
         type='button'
         onClick={onClick}

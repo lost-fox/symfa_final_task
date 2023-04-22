@@ -5,7 +5,9 @@ import { Button } from 'components/ui/Button';
 import { Like } from 'components/ui/Like';
 import { useAppSelector } from 'store/rootReducer';
 import { favoriteMealUser } from 'store/services/user.service';
+import { cartActions } from 'store/slices';
 import { useAppDispatch } from 'store/store';
+import { ICart } from 'store/types/cart';
 import { IMeals } from 'store/types/meals';
 
 import styles from './DishCard.module.scss';
@@ -24,7 +26,20 @@ export const DishCard = memo((props: IDishCard) => {
         !!user.user!.favoriteDish.filter(item => item.mealId === _id).length,
     );
 
-    const handlerBtn = () => console.log('hello!!');
+    const handlerBtn = (event: React.MouseEvent) => {
+        event.stopPropagation();
+
+        const cartData: ICart = {
+            id: _id,
+            name,
+            subtitle,
+            image,
+            price,
+            count: 1,
+        };
+
+        dispatch(cartActions.addItemToCart(cartData));
+    };
 
     const handlerLike = (event: React.MouseEvent) => {
         event.stopPropagation();
@@ -39,6 +54,10 @@ export const DishCard = memo((props: IDishCard) => {
         const { id } = event.target as HTMLDivElement;
 
         if (id !== 'like') {
+            navigate(`/${_id}`);
+        }
+
+        if (id !== 'btn') {
             navigate(`/${_id}`);
         }
     };
@@ -59,7 +78,7 @@ export const DishCard = memo((props: IDishCard) => {
             <p className={styles.subtitle}>{subtitle}</p>
             <p className={styles.price}><span className={styles.currency}>$</span>{price}</p>
         </div>
-        <Button id={_id} value='Add to Cart' type='dish' onClick={handlerBtn} />
+        <Button id='btn' value='Add to Cart' type='dish' onClick={handlerBtn} />
     </div>;
 });
 

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { memo, useState } from 'react';
 import classNames from 'classnames';
 
@@ -9,29 +10,33 @@ import styles from './Count.module.scss';
 
 interface ICountProps {
     className?: string;
+    amount?: number;
+    onClick: (count: number) => void;
 }
 
 export const Count = memo((props: ICountProps) => {
     const { wrapper } = styles;
-    const { className } = props;
-    const [count, setCount] = useState<number>(0);
+    const { className, amount, onClick } = props;
+    const [count, setCount] = useState<number>(amount || 1);
 
     const handlerCount = (event: React.MouseEvent) => {
-        const { id } = event.target as HTMLButtonElement;
+        const type = (event.currentTarget as HTMLButtonElement).getAttribute('data-type');
 
-        if (id === '+') {
-            setCount(prev =>  prev += 1 );
+        if (type === '+') {
+            onClick(count + 1);
+            setCount(prevCount => prevCount + 1 );
         } else {
             if (count === 0) return;
 
-            setCount(prev => prev -= 1);
+            onClick(count - 1);
+            setCount(prevCount => prevCount - 1);
         }
     };
 
     return <div className={classNames(wrapper, className)}>
-        <Button id='-' type='count' value={<MinusIcon/>} onClick={handlerCount}/>
-        {count}
-        <Button id='+' type='count' value={<PlusIcon/>} onClick={handlerCount}/>
+        <Button data='-' type='count' value={<MinusIcon/>} onClick={handlerCount}/>
+        <p>{count}</p>
+        <Button data='+' type='count' value={<PlusIcon/>} onClick={handlerCount}/>
     </div>;
 });
 
