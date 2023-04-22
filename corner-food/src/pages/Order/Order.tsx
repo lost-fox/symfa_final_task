@@ -23,6 +23,12 @@ export const Order = memo(() => {
 
     const getPrice = () => cart.cart.reduce((acc, item) => acc += item.count * item.price, 0).toFixed(2);
 
+    const totalPrice = () => {
+        const promo = +cart.discount.slice(0, cart.discount.length - 1);
+
+        return (+getPrice() * (1 - promo / 100)).toFixed(2);
+    };
+
     return <div className={wrapper}>
         <header className={header}>
             <h1 className={styles.title}> My Order</h1>
@@ -48,7 +54,7 @@ export const Order = memo(() => {
                 <LineIcon className={styles.iconLine}/>
                 <div className={styles.detailItem}>
                     <p className={styles.total}>Total</p>
-                    <p className={styles.price}>${getPrice()}</p>
+                    <p className={styles.price}>${totalPrice()}</p>
                 </div>
             </div>
             <Button value="CONFIRM ORDER" type="order" />

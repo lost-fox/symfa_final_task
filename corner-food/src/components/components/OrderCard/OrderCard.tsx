@@ -29,7 +29,12 @@ export const OrderCard = memo((props: IOrderCard) => {
             count: amount,
         };
 
-        dispatch(cartActions.exchangeCount(data));
+        if (amount === 0) {
+            dispatch(cartActions.deletemealToCart(data));
+        } else {
+            dispatch(cartActions.exchangeCount(data));
+        }
+
     };
 
     return <div className={wrapper}>
