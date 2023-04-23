@@ -1,4 +1,5 @@
 import { IMeals } from './meals';
+import { IGetOrder } from './order';
 
 export interface IUser {
     _id: string;
@@ -15,4 +16,5 @@ export interface IUser {
 export interface IUserSchema {
     user: IUser | null;
     favorite: IMeals[];
+    orders: IGetOrder[];
 }

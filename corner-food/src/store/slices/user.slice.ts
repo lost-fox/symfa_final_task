@@ -1,11 +1,13 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
 import { IMeals } from 'store/types/meals';
+import { IGetOrder } from 'store/types/order';
 import { IUser, IUserSchema } from 'store/types/user';
 
 const initialState: IUserSchema = {
     user: null,
     favorite: [],
+    orders: [],
 };
 
 export const userSlice = createSlice({
@@ -20,6 +22,9 @@ export const userSlice = createSlice({
         },
         getFavorite: (state, action: PayloadAction<IMeals[]>) => {
             state.favorite = action.payload;
+        },
+        getOrders: (state, action: PayloadAction<IGetOrder[]>) => {
+            state.orders = action.payload;
         },
     },
 });

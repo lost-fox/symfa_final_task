@@ -9,7 +9,13 @@ export interface IOrder {
     courier: {
         id: string;
         name: string;
-    };
+        image: string;
+    }[];
+    deliveryTime: number;
     start: Date;
     finish: Date;
+}
+
+export interface IGetOrder extends IOrder {
+    _id: string;
 }

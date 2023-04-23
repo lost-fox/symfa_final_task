@@ -57,10 +57,12 @@ export const Order = memo(() => {
             userId: user.user!._id,
             total: +totalPrice(),
             meals,
-            courier: {
+            courier: [{
                 id: freeCouriers[randomCourier]._id,
                 name: freeCouriers[randomCourier].fullName,
-            },
+                image: freeCouriers[randomCourier].image,
+            }],
+            deliveryTime,
             start: today,
             finish,
         };

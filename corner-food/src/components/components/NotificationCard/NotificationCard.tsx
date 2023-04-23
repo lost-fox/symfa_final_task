@@ -1,9 +1,10 @@
-/* eslint-disable max-len */
 import { memo } from 'react';
 
 import { Avatar } from 'components/ui/Avatar';
 import { Button } from 'components/ui/Button';
 import { Icon } from 'components/ui/Icon';
+import { useAppSelector } from 'store/rootReducer';
+import { IGetOrder } from 'store/types/order';
 
 import { ReactComponent as CallIcon } from '../../../assets/icon/call.svg';
 import { ReactComponent as MapIcon } from '../../../assets/icon/map.svg';
@@ -11,16 +12,22 @@ import { ReactComponent as TimeIcon } from '../../../assets/icon/time.svg';
 
 import styles from './NotificationCard.module.scss';
 
-export const NotificationCard = memo(() => {
+interface INotifacationCard {
+    value: IGetOrder;
+}
+
+export const NotificationCard = memo((props: INotifacationCard) => {
     const { wrapper, personInfo, deliveryInfo, br } = styles;
+    const { user } = useAppSelector(state => state.user);
+    const { courier, deliveryTime } = props.value;
 
     return <div className={wrapper}>
         <div className={personInfo}>
             <div className={styles.person}>
-                <Avatar src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4KWIKwaojpneN3qgoL7Ec2xT4EcwjbQ8ImQ&usqp=CAU' size='medium' shape='rectangle' />
+                <Avatar src={courier[0].image} size='medium' shape='rectangle' />
                 <div className={styles.info}>
-                    <h2 className={styles.title}>Budi Sanjaya</h2>
-                    <p className={styles.id}>ID : 78A6767</p>
+                    <h2 className={styles.title}>{courier[0].name}</h2>
+                    <p className={styles.id}>ID : {courier[0].id.slice(0, 8)}</p>
                     <p className={styles.worker}>Food courier</p>
                 </div>
             </div>
@@ -32,14 +39,14 @@ export const NotificationCard = memo(() => {
                 <Icon> <TimeIcon/></Icon>
                 <div className={styles.deliveryDecsription}>
                     <p className={styles.deliveryTitle}>Your Delivery Time</p>
-                    <p className={styles.deliveryValue}>55 minutes</p>
+                    <p className={styles.deliveryValue}>{deliveryTime} minutes</p>
                 </div>
             </div>
             <div className={styles.deliveryItem}>
                 <Icon> <MapIcon/></Icon>
                 <div className={styles.deliveryDecsription}>
                     <p className={styles.deliveryTitle}>Your Delivery Address</p>
-                    <p className={styles.deliveryValue}>Kediri City</p>
+                    <p className={styles.deliveryValue}>{user?.address || 'No info'}</p>
                 </div>
             </div>
         </div>
