@@ -17,7 +17,6 @@ const combinedReducer = combineReducers<IStateSchema>({
 });
 
 export const rootReducer = (state: IStateSchema | undefined, action: AnyAction) => {
-
     if (action.type === 'user/logout') {
         state = undefined;
     }

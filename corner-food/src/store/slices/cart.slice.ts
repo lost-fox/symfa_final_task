@@ -11,10 +11,10 @@ export const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
-        addItemToCart: (state, action:  PayloadAction<ICart>) => {
+        addItemToCart: (state, action: PayloadAction<ICart>) => {
             state.cart = [...state.cart, action.payload];
         },
-        exchangeCount: (state, action:  PayloadAction<ICart>) => {
+        exchangeCount: (state, action: PayloadAction<ICart>) => {
             const { id, count: newCount } = action.payload;
 
             state.cart.forEach(item => {
@@ -22,15 +22,14 @@ export const cartSlice = createSlice({
                     item.count = newCount;
                 }
             });
-
         },
-        deletemealToCart: (state, action:  PayloadAction<ICart>) => {
+        deletemealToCart: (state, action: PayloadAction<ICart>) => {
             state.cart = state.cart.filter(item => item.id !== action.payload.id);
         },
         resetCart: state => {
             state.cart = [];
         },
-        getDiscount: (state, action: PayloadAction<string> ) => {
+        getDiscount: (state, action: PayloadAction<string>) => {
             state.discount = action.payload;
         },
     },

@@ -11,7 +11,7 @@ export const getUserById = async (id: string, dispatch: AppDispatch): Promise<vo
     dispatch(userActions.getUser(user));
 };
 
-export const updateUser = async (id: string,  body: IUser): Promise<void> => {
+export const updateUser = async (id: string, body: IUser): Promise<void> => {
     await HttpService.patch(`/users/${id}`, body);
 };
 
@@ -21,7 +21,7 @@ export const getFavoriteMealUser = async (id: string, dispatch: AppDispatch): Pr
     dispatch(userActions.getFavorite(meals));
 };
 
-export const favoriteMealUser = async (id: string,  mealId: string, dispatch: AppDispatch):Promise<void> => {
+export const favoriteMealUser = async (id: string, mealId: string, dispatch: AppDispatch): Promise<void> => {
     await HttpService.patch(`/users/${id}/favorite`, { mealId });
     await getUserById(id, dispatch);
 };

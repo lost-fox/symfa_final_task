@@ -9,7 +9,6 @@ interface IBody {
 }
 
 export const getDiscountValue = async (body: IBody, dispatch: AppDispatch) => {
-
     try {
         dispatch(loaderActions.changeLoader(true));
         const coupon: ICoupon = await HttpService.post('/coupons', body);
@@ -21,5 +20,4 @@ export const getDiscountValue = async (body: IBody, dispatch: AppDispatch) => {
     } finally {
         dispatch(loaderActions.changeLoader(false));
     }
-
 };
