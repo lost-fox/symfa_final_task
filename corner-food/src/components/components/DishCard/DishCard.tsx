@@ -20,7 +20,7 @@ export const DishCard = memo((props: IDishCard) => {
     const { wrapper, imageWrapper, likeItem, info } = styles;
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
-    const { user } = useAppSelector(state => state);
+    const { user, cart } = useAppSelector(state => state);
     const { _id, name, subtitle, image, price } = props.value;
     const [isLike, setIsLike] = useState<boolean>(
         !!user.user!.favoriteDish.filter(item => item.mealId === _id).length,
@@ -29,16 +29,25 @@ export const DishCard = memo((props: IDishCard) => {
     const handlerBtn = (event: React.MouseEvent) => {
         event.stopPropagation();
 
+        const isMeal = cart.cart.filter(item => item.id === _id);
+
         const cartData: ICart = {
             id: _id,
             name,
             subtitle,
             image,
             price,
-            count: 1,
+            count:  isMeal.length ?  isMeal[0].count + 1 : 1,
         };
 
-        dispatch(cartActions.addItemToCart(cartData));
+        if (isMeal.length) {
+
+            dispatch(cartActions.exchangeCount(cartData));
+        } else {
+
+            dispatch(cartActions.addItemToCart(cartData));
+        }
+
     };
 
     const handlerLike = (event: React.MouseEvent) => {

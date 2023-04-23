@@ -46,7 +46,9 @@ export const NotificationCard = memo((props: INotifacationCard) => {
                 <Icon> <MapIcon/></Icon>
                 <div className={styles.deliveryDecsription}>
                     <p className={styles.deliveryTitle}>Your Delivery Address</p>
-                    <p className={styles.deliveryValue}>{user?.address || 'No info'}</p>
+                    <p className={styles.deliveryValue}>
+                        {user?.address || 'No information'}
+                    </p>
                 </div>
             </div>
         </div>
