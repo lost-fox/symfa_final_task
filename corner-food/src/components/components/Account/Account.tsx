@@ -3,7 +3,7 @@ import { memo, useState } from 'react';
 import { Button } from 'components/ui/Button';
 import { Input } from 'components/ui/Input';
 import { useAppSelector } from 'store/rootReducer';
-import { deleteUser, getUserById, updateUser } from 'store/services/user.service';
+import { deleteUser, getUserById, updateUser } from 'store/services';
 import { useAppDispatch } from 'store/store';
 import { validateForm } from 'utils/helpers/validateForm';
 
@@ -13,7 +13,6 @@ export const Account = memo(() => {
     const { wrapper } = styles;
     const { user } = useAppSelector(state => state);
     const dispatch = useAppDispatch();
-    // const [userImage, setUserImage] = useState<string>('');
     const [userName, setUserName] = useState<string>(user.user?.username || '');
     const [userEmail, setUserEmail] = useState<string>(user.user?.email || '');
     const [address, setAddress] = useState<string>(user.user?.address || '');
@@ -27,10 +26,6 @@ export const Account = memo(() => {
         const { id, value } = event.target as HTMLInputElement;
 
         switch (id) {
-            // case 'image':
-            //     setUserImage(value);
-
-            //     break;
             case 'username':
                 setUserName(value);
                 setIsName(validateForm(id, value));
@@ -97,13 +92,6 @@ export const Account = memo(() => {
 
     return <div className={wrapper}>
         <div className={styles.inputs}>
-            {/* <Input
-                id='image'
-                type='file'
-                label='Image'
-                value={userImage}
-                onChange={handlerUserData}
-            /> */}
             <Input
                 id='username'
                 type='text'

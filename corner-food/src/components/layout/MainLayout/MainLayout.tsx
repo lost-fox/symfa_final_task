@@ -5,7 +5,7 @@ import jwtDecode from 'jwt-decode';
 
 import { Navbar } from 'components/components/Navbar';
 import { useAppSelector } from 'store/rootReducer';
-import { getUserById } from 'store/services/user.service';
+import { getUserById } from 'store/services';
 import { useAppDispatch } from 'store/store';
 import { ROUTES } from 'utils/constants/routes.enum';
 

@@ -1,7 +1,7 @@
 import { memo, useState } from 'react';
 
 import { Button } from 'components/ui/Button';
-import { getDiscountValue } from 'store/services/cart.service';
+import { getDiscountValue } from 'store/services';
 import { useAppDispatch } from 'store/store';
 
 import { ReactComponent as PromoIcon } from '../../../assets/icon/promo_code.svg';

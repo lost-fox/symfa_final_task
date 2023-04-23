@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthHeader } from 'components/components/AuthHeader';
 import { Button } from 'components/ui/Button';
 import { Input } from 'components/ui/Input';
-import { getToken } from 'store/services/auth.service';
+import { getToken } from 'store/services';
 import { ROUTES } from 'utils/constants/routes.enum';
 import { validateForm } from 'utils/helpers/validateForm';
 import { IGetToken } from 'utils/interfaces/Auth.service.interface';

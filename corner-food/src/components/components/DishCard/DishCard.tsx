@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from 'components/ui/Button';
 import { Like } from 'components/ui/Like';
 import { useAppSelector } from 'store/rootReducer';
-import { favoriteMealUser } from 'store/services/user.service';
+import { favoriteMealUser } from 'store/services';
 import { cartActions } from 'store/slices';
 import { useAppDispatch } from 'store/store';
 import { ICart } from 'store/types/cart';
