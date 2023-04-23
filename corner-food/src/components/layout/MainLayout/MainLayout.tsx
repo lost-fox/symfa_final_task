@@ -1,6 +1,5 @@
 import type { PropsWithChildren } from 'react';
 import { useLocation } from 'react-router-dom';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import jwtDecode from 'jwt-decode';
 
 import { Navbar } from 'components/components/Navbar';

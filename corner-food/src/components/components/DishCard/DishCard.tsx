@@ -75,7 +75,6 @@ export const DishCard = memo((props: IDishCard) => {
         <div className={imageWrapper}>
             <img
                 className={styles.image}
-                // eslint-disable-next-line max-len
                 src={image}
                 alt="dish icon" />
             <div id="like" className={likeItem}>

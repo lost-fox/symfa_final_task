@@ -88,7 +88,6 @@ export const Account = memo(() => {
         document.cookie = 'Token=""; expires=Thu, 01 Jan 1970 00:00:00 GMT;';
         dispatch(userActions.logout());
         navigate(ROUTES.HOME);
-        // document.location.reload();
     };
 
     const deleteUserBtn = () => {

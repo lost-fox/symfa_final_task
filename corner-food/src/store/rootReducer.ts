@@ -19,7 +19,6 @@ const combinedReducer = combineReducers<IStateSchema>({
 export const rootReducer = (state: IStateSchema | undefined, action: AnyAction) => {
 
     if (action.type === 'user/logout') {
-        // eslint-disable-next-line
         state = undefined;
     }
 
