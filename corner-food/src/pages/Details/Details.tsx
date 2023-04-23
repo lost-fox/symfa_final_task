@@ -44,7 +44,12 @@ export const Details = memo(() => {
     };
 
     const handlerCount = (amount: number) => {
-        setCount(amount);
+        if (amount === 0) {
+            setCount(1);
+        } else {
+            setCount(amount);
+        }
+
     };
 
     const handlerBtn = (event: React.MouseEvent) => {
