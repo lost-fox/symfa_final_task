@@ -6,16 +6,9 @@ import { IMeals } from 'store/types/meals';
 import { IUser } from 'store/types/user';
 
 export const getUserById = async (id: string, dispatch: AppDispatch): Promise<void> => {
-    try {
-        dispatch(loaderActions.changeLoader(true));
-        const user = await HttpService.get<IUser>(`/users/${id}`);
+    const user = await HttpService.get<IUser>(`/users/${id}`);
 
-        dispatch(userActions.getUser(user));
-    } catch (err) {
-        console.log(err);
-    } finally {
-        dispatch(loaderActions.changeLoader(false));
-    }
+    dispatch(userActions.getUser(user));
 };
 
 export const updateUser = async (id: string,  body: IUser): Promise<void> => {
@@ -23,16 +16,9 @@ export const updateUser = async (id: string,  body: IUser): Promise<void> => {
 };
 
 export const getFavoriteMealUser = async (id: string, dispatch: AppDispatch): Promise<void> => {
-    try {
-        dispatch(loaderActions.changeLoader(true));
-        const meals: IMeals[] = await HttpService.get(`/users/${id}/favorite`);
+    const meals: IMeals[] = await HttpService.get(`/users/${id}/favorite`);
 
-        dispatch(userActions.getFavorite(meals));
-    } catch (err) {
-        console.log(err);
-    } finally {
-        dispatch(loaderActions.changeLoader(false));
-    }
+    dispatch(userActions.getFavorite(meals));
 };
 
 export const favoriteMealUser = async (id: string,  mealId: string, dispatch: AppDispatch):Promise<void> => {

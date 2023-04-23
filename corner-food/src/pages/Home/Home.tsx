@@ -25,9 +25,11 @@ export const Home = memo(() => {
     };
 
     useEffect(() => {
-        getMeals(dispatch);
+        if (!meals.meals.length) {
+            getMeals(dispatch);
+        }
 
-    }, [dispatch]);
+    }, [dispatch, meals.meals.length]);
 
     useEffect(() => {
         getChips();
@@ -44,7 +46,7 @@ export const Home = memo(() => {
         }
     };
 
-    return loader.isLoader ?
+    return loader.isLoader || !meals.meals.length ?
         <Loader/>
         :
         <div className={wrapper}>
