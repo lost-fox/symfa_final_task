@@ -12,8 +12,8 @@
 
     .buttons {
         display: flex;
-        align-items: center;
         gap: 10px;
+        align-items: center;
 
         button:last-child {
             background-color: var(--red);

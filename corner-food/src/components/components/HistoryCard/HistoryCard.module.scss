@@ -1,0 +1,41 @@
+.wrapper {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   width: 100%;
+   padding: 20px 15px;
+   background: var(--palette-background-item);
+   border-radius: 20px;
+
+   .meals {
+        display: flex;
+        gap:10px;
+        align-items: center;
+        justify-content: space-between;
+        color: var(--palette-text-home);
+
+        .meal {
+            width: 70%;
+            text-align: left;
+        }
+   }
+
+   .br {
+        width: 100%;
+        height: 1px;
+        background: url("../../../assets/icon/line.svg");
+    }
+
+    .total {
+        color: var(--red);
+        font-weight: 700;
+        font-size: 16px;
+        text-align: right;
+    }
+
+    .courier {
+        color: var(--palette-text-home);
+        font-weight: 400;
+        font-size: 14px;
+    }
+}

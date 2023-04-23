@@ -1,4 +1,17 @@
 .wrapper {
     height: 464px;
     padding: 30px 20px;
+
+    .items {
+        display: flex;
+        flex-direction: column;
+        max-height: 400px;
+        overflow-y: auto;
+        row-gap: 25px;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
 }
