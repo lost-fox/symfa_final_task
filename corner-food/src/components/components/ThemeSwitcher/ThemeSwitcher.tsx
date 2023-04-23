@@ -11,7 +11,7 @@ export const ThemeSwitcher = memo(() => {
 
     return <button type="button" className={switcher}  onClick={() => {
         setTheme?.(theme === THEMES.light ? THEMES.dark : THEMES.light);
-    }}> {theme} </button>;
+    }}> {theme?.toUpperCase()} </button>;
 });
 
 ThemeSwitcher.displayName = 'ThemeSwitcher';
