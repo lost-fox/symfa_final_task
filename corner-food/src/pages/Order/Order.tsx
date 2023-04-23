@@ -9,6 +9,7 @@ import { getAllCouriers } from 'store/services/courier.service';
 import { createOrder } from 'store/services/order.service';
 import { cartActions } from 'store/slices';
 import { useAppDispatch } from 'store/store';
+import { TODAY } from 'utils/constants/common';
 import { ROUTES } from 'utils/constants/routes.enum';
 
 import { ReactComponent as CloseIcon } from '../../assets/icon/close.svg';
@@ -49,8 +50,6 @@ export const Order = memo(() => {
 
         const deliveryTime = Math.floor(40 + Math.random() * (60 + 1 - 40));
 
-        const today = new Date();
-
         const finish = new Date(Date.now() + deliveryTime * 60 * 1000);
 
         const data = {
@@ -63,7 +62,7 @@ export const Order = memo(() => {
                 image: freeCouriers[randomCourier].image,
             }],
             deliveryTime,
-            start: today,
+            start: TODAY,
             finish,
         };
 

@@ -3,6 +3,7 @@ import { memo, useEffect } from 'react';
 import { useAppSelector } from 'store/rootReducer';
 import { getAllOrders } from 'store/services/order.service';
 import { useAppDispatch } from 'store/store';
+import { TODAY } from 'utils/constants/common';
 
 import { HistoryCard } from '../HistoryCard';
 
@@ -12,7 +13,6 @@ export const History = memo(() => {
     const { wrapper, items } = styles;
     const dispatch = useAppDispatch();
     const { orders, user } = useAppSelector(state => state.user);
-    const today = new Date();
 
     useEffect(() => {
         getAllOrders(user!._id, dispatch);
@@ -23,7 +23,7 @@ export const History = memo(() => {
             {
                 // eslint-disable-next-line array-callback-return, consistent-return
                 orders.map(item => {
-                    if (new Date(item.finish) < today) {
+                    if (new Date(item.finish) < TODAY) {
                         return <HistoryCard key={item._id} value={item} />;
                     }
 
