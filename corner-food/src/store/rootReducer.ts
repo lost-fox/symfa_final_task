@@ -16,9 +16,15 @@ const combinedReducer = combineReducers<IStateSchema>({
     loader: loaderReducer,
 });
 
-export const rootReducer = (state: IStateSchema | undefined, action: AnyAction) =>
+export const rootReducer = (state: IStateSchema | undefined, action: AnyAction) => {
 
-    combinedReducer(state, action);
+    if (action.type === 'user/logout') {
+        // eslint-disable-next-line
+        state = undefined;
+    }
+
+    return combinedReducer(state, action);
+};
 
 export type RootState = ReturnType<typeof rootReducer>;
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;

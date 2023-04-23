@@ -1,10 +1,13 @@
 import { memo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Button } from 'components/ui/Button';
 import { Input } from 'components/ui/Input';
 import { useAppSelector } from 'store/rootReducer';
 import { deleteUser, getUserById, updateUser } from 'store/services';
+import { userActions } from 'store/slices';
 import { useAppDispatch } from 'store/store';
+import { ROUTES } from 'utils/constants/routes.enum';
 import { validateForm } from 'utils/helpers/validateForm';
 
 import styles from './Account.module.scss';
@@ -13,6 +16,7 @@ export const Account = memo(() => {
     const { wrapper } = styles;
     const { user } = useAppSelector(state => state);
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
     const [userName, setUserName] = useState<string>(user.user?.username || '');
     const [userEmail, setUserEmail] = useState<string>(user.user?.email || '');
     const [address, setAddress] = useState<string>(user.user?.address || '');
@@ -82,7 +86,9 @@ export const Account = memo(() => {
 
     const signOut = () => {
         document.cookie = 'Token=""; expires=Thu, 01 Jan 1970 00:00:00 GMT;';
-        document.location.reload();
+        dispatch(userActions.logout());
+        navigate(ROUTES.HOME);
+        // document.location.reload();
     };
 
     const deleteUserBtn = () => {
