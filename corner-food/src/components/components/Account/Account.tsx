@@ -135,7 +135,7 @@ export const Account = memo(() => {
         </div>
 
         <div className={styles.buttons}>
-            <Button value="Save" type="auth" onClick={submitUserData} disabled={!handlerValidBtn()} />
+            <Button value="Save" type="auth" onClick={submitUserData} disabled={!handlerValidBtn()} id='Save' />
             <Button value="Delete" type="auth" onClick={deleteUserBtn} />
         </div>
         <Button value="SignOut" type="auth" onClick={signOut} />
