@@ -18,10 +18,61 @@
         margin-bottom: 22px;
 
         .card {
+            position: relative;
             width: 240px;
             height: 145px;
-            background: var(--palette-h1-home);
+            background: var(--palette-grey-10);
             border-radius: 20px;
+
+            .amazon {
+                margin-top: 13px;
+                margin-left: 165px;
+            }
+
+            .userName {
+                margin: 5px 0px;
+                padding: 0px 20px;
+                font-weight: 400;
+                line-height: 25px;
+                font-size: 11px;
+                text-align: left;
+                color: var(--white);
+                background: var(--palette-blue-4);
+            }
+
+            .cardInfo {
+                padding: 0px 19px 14px;
+                display: flex;
+                flex-direction: column;
+                gap: 18px;
+                color: var(--white);
+                text-align: left;
+
+                .numberCard {
+                    font-weight: 600;
+                    font-size: 10px;
+                    line-height: 28px;
+                }
+
+                .money {
+                    font-weight: 600;
+                    font-size: 14px;
+                    line-height: 25px;
+                }
+            }
+
+            .cardIcon {
+                position: absolute;
+                bottom: 0;
+                right: 20px;
+
+                .cardIconTitle {
+                    font-weight: 500;
+                    font-size: 9px;
+                    line-height: 28px;
+                    color: var(--white);
+                }
+            }
         }
 
         .methods {
